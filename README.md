@@ -182,6 +182,36 @@ fi
 id "$1" &>/dev/null || useradd "$1"
 echo "$(date): $1 ensured" >> /var/log/user_create.log
 
+# ADDITIONAL BASH SCRIPT EXAMPLES (RHCSA / EX200)
+
+These examples demonstrate the **exact level of scripting expected** on the RHCSA exam:
+- No advanced Bash features
+- Clear logic
+- Idempotent behavior
+- Safe to run multiple times
+
+---
+
+## 1. FOR LOOP — Bulk User Creation
+
+### Scenario
+Create multiple users from a predefined list.
+
+### Script
+```bash
+#!/bin/bash
+
+USERS="dev1 dev2 dev3"
+
+for user in $USERS; do
+  if id "$user" &>/dev/null; then
+    echo "User $user already exists"
+  else
+    useradd "$user"
+    echo "Created user $user"
+  fi
+done
+
 ---
 
 ## LAB 8 — CONTAINERS (PODMAN)
