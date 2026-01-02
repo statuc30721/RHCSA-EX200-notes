@@ -198,7 +198,7 @@ These examples demonstrate the **exact level of scripting expected** on the RHCS
 Create multiple users from a predefined list.
 
 ### Script
-```bash
+
 #!/bin/bash
 
 USERS="dev1 dev2 dev3"
